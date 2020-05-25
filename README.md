@@ -12,6 +12,10 @@
 * [ ] User can see either green/red depending on whether or not they've won.
 * [ ] User can see a game history which lists the rounds played so far and outcome.
 
+* [ ] User can only play the game once they've pressed a button titled Start.
+* [ ] User can sign in and have their name attributed to the victory.
+* [ ] User can see the prompt colored correctly based on the outcome of the game. If player has won, "Victory!" is green. If player has loss, "Defeat!" is red. If the result is a tie, the text remains black.
+* [ ] User sees "flawless" victory behavior in the game. If the user/computer wins the first 3 rounds in a row, they've achieve a flawless victory.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

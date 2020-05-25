@@ -49,7 +49,8 @@ import ChoiceCard from "./components/ChoiceCard";
 import List from "./components/List";
 import { CHOICES, getRoundOutcome } from "./utils";
 import ChoiceButtons from "./components/ChoiceButtons";
-
+import Login from "./components/Login";
+import Footer from './components/Footer';
 function App() {
   const [playerChoice, setPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
@@ -63,6 +64,7 @@ function App() {
     const newComputerChoice = CHOICES[compChoice];
     setPlayerChoice(newUserChoice);
     setComputerChoice(newComputerChoice);
+
     if (result === "Victory!") {
       setPreviousWinner("You");
     } else if (result === "Defeat!") {
@@ -70,6 +72,7 @@ function App() {
     } else {
       setPreviousWinner("Tie");
     }
+
     console.log(
       "result: ",
       result,
@@ -78,6 +81,7 @@ function App() {
       "user's choice: ",
       playerChoice
     );
+
     setGamePrompt(result);
     gameHistory.push(result);
     setGameHistory(gameHistory);
@@ -85,16 +89,15 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="an-text-carousel an-slide-bottom">Rock Paper Scissor</h1>
       <div className="container-large ">
+        <Login />
         <div className="bigbox mt-5 mb-5">
           <ChoiceCard
             className="col-4"
-            title="Player"
+            title="You"
             color="white"
             winner={true}
             previousWinner={previousWinner}
-            // imgURL={choices.paper}
             imgURL={playerChoice && playerChoice.url}
           />
           <div className="col-4">
@@ -109,7 +112,6 @@ function App() {
             color="red"
             winner={false}
             previousWinner={previousWinner}
-            // imgURL={choices.rock}
             imgURL={computerChoice && computerChoice.url}
           />
         </div>
@@ -122,6 +124,7 @@ function App() {
           })}
         </ul>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -1,22 +1,22 @@
 import React from "react";
 
-export default function ChoiceButtons(props) {
+function ChoiceButtons(props) {
   return (
     <div className='container d-flex justify-content-around'>
       <button
-        className="btn btn-danger btn-lg"
+        className="btn btn-dark btn-lg"
         onClick={() => props.onPlayerChoose("rock")}
       >
         Rock
       </button>
       <button
-        className="btn btn-danger btn-lg"
+        className="btn btn-dark btn-lg"
         onClick={() => props.onPlayerChoose("paper")}
       >
         Paper
       </button>
       <button
-        className="btn btn-danger btn-lg"
+        className="btn btn-dark btn-lg"
         onClick={() => props.onPlayerChoose("scissors")}
       >
         Scissors
@@ -24,3 +24,5 @@ export default function ChoiceButtons(props) {
     </div>
   );
 }
+
+export default ChoiceButtons;

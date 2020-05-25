@@ -73,7 +73,6 @@ button {
   border: 5px solid white;
 }
 button:hover {
-  background-color: red;
   opacity: 1;
 }
 
@@ -116,4 +115,10 @@ button:hover {
   justify-content: space-around;
   align-items: center;
   background-color: lightgoldenrodyellow;
+}
+
+.headBox{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
