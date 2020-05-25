@@ -1,5 +1,6 @@
 //class component
 // import React, { Component } from "react";
+// import "./App.css";
 // import ChoiceCard from "./components/ChoiceCard";
 // import List from "./components/List";
 // const choices = {
@@ -17,7 +18,7 @@
 //       <div className="App">
 //         <header className="App-header">
 //           <h1>Rock Paper Scissor</h1>
-//           <div className="container">
+//           <div className="d-flex">
 //             <ChoiceCard
 //               title="Computer"
 //               color="red"
@@ -42,7 +43,7 @@
 
 //function component
 
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import ChoiceCard from "./components/ChoiceCard";
 import List from "./components/List";
@@ -56,23 +57,27 @@ const choices = {
 };
 
 function App() {
+  const [prompt, setGamePrompt] = useState("1, 2, 3, SHOOT!");
   return (
     <div className="App">
       <header className="App-header">
         <h1>Rock Paper Scissor</h1>
-        <div className="container">
-          <ChoiceCard
-            title="Computer"
-            color="red"
-            winner={false}
-            imgURL={choices.rock}
-          />
-          <ChoiceCard
-            title="Player"
-            color="white"
-            winner={true}
-            imgURL={choices.paper}
-          />
+        <div className="container-large ">
+          <div className="bigbox">
+            <ChoiceCard
+              title="Computer"
+              color="red"
+              winner={false}
+              imgURL={choices.rock}
+            />
+            <h1>{prompt}</h1>
+            <ChoiceCard
+              title="Player"
+              color="white"
+              winner={true}
+              imgURL={choices.paper}
+            />
+          </div>
         </div>
         <ul>
           <List />

@@ -4,9 +4,17 @@
 // class ChoiceCard extends Component {
 //   render() {
 //     return (
-//       <div className={`choice-card ${this.props.winner ? "winner" : "loser"}`}>
+//       <div
+//         className={`choice-card ${this.props.winner ? "winner" : "loser"} 
+//         ${this.props.color} align-center`}
+//       >
 //         <h1>{this.props.title}</h1>
-//         <img className="card-size" src={this.props.imgURL} alt={this.props.title} />
+//         <img
+//           className="card-size"
+//           width="250px"
+//           src={this.props.imgURL}
+//           alt={this.props.title}
+//         />
 //         <h3>{this.props.winner ? "Won" : "Loss"}</h3>
 //       </div>
 //     );
