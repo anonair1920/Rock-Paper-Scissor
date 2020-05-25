@@ -85,8 +85,8 @@ button:hover {
 }
 
 .an-slide-bottom {
-  -webkit-animation: slide-bottom 3s ease-out both;
-  animation: slide-bottom 3s ease-out both;
+  -webkit-animation: slide-bottom 2s ease-out both;
+  animation: slide-bottom 2s ease-out both;
   text-shadow: black pink grey;
 }
 

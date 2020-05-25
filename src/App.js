@@ -47,56 +47,9 @@ import React, { useState } from "react";
 import "./App.css";
 import ChoiceCard from "./components/ChoiceCard";
 import List from "./components/List";
-const choices = {
-  rock:
-    "https://www.clipartmax.com/png/middle/356-3561104_cartoon-rock-paper-scissors.png",
-  paper:
-    "https://www.clipartmax.com/png/middle/149-1498962_cartoon-emoji-paper-rock-scissors-icon-rock-paper-scissors-emoji.png",
-  scissor:
-    "https://www.clipartmax.com/png/middle/151-1517270_scissors-cartoon-cartoon-rock-paper-scissors.png",
-};
-export const CHOICES = {
-  scissors: {
-    name: "scissors",
-    url:
-      "https://www.clipartmax.com/png/middle/151-1517270_scissors-cartoon-cartoon-rock-paper-scissors.png",
-  },
-  paper: {
-    name: "paper",
-    url:
-      "https://www.clipartmax.com/png/middle/149-1498962_cartoon-emoji-paper-rock-scissors-icon-rock-paper-scissors-emoji.png",
-  },
-  rock: {
-    name: "rock",
-    url:
-      "https://www.clipartmax.com/png/middle/356-3561104_cartoon-rock-paper-scissors.png",
-  },
-};
+import { CHOICES, getRoundOutcome } from "./utils";
+import ChoiceButtons from "./components/ChoiceButtons";
 
-export const getRoundOutcome = (userChoice) => {
-  const computerChoice = getRandomChoice().name;
-  let result;
-
-  if (userChoice === "rock") {
-    result = computerChoice === "scissors" ? "Victory!" : "Defeat!";
-  }
-  if (userChoice === "paper") {
-    result = computerChoice === "rock" ? "Victory!" : "Defeat!";
-  }
-  if (userChoice === "scissors") {
-    result = computerChoice === "paper" ? "Victory!" : "Defeat!";
-  }
-
-  if (userChoice === computerChoice) result = "Tie game!";
-  return [result, computerChoice];
-};
-
-export const getRandomChoice = () => {
-  let choiceNames = Object.keys(CHOICES);
-  let randomIndex = Math.floor(Math.random() * 3);
-  let choiceName = choiceNames[randomIndex];
-  return CHOICES[choiceName];
-};
 function App() {
   const [playerChoice, setPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
@@ -145,26 +98,9 @@ function App() {
             imgURL={playerChoice && playerChoice.url}
           />
           <div className="col-4">
-            <h2 className="an-text-carousel mb-4">{prompt}</h2>
-            <div className="container d-flex justify-content-around">
-              <button
-                className="btn btn-danger btn-lg"
-                onClick={() => onPlayerChoose("rock")}
-              >
-                Rock
-              </button>
-              <button
-                className="btn btn-danger btn-lg"
-                onClick={() => onPlayerChoose("paper")}
-              >
-                Paper
-              </button>
-              <button
-                className="btn btn-danger btn-lg"
-                onClick={() => onPlayerChoose("scissors")}
-              >
-                Scissors
-              </button>
+            <h2 className="an-slide-bottom an-text-carousel mb-4">{prompt}</h2>
+            <div>
+              <ChoiceButtons onPlayerChoose={onPlayerChoose} />
             </div>
           </div>
           <ChoiceCard
@@ -178,7 +114,7 @@ function App() {
           />
         </div>
       </div>
-      <div className='historyBox'>
+      <div className="historyBox">
         <List />
         <ul>
           {gameHistory.map((result) => {
