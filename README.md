@@ -1,3 +1,11 @@
+## Required Features 🎯
+* [ ] User can see two of the same ChoiceCard components.
+* [ ] User can see two different titles in our ChoiceCard components.
+* [ ] User can see two different images in our ChoiceCard components.
+* [ ] User can see two different prompts in our ChoiceCard components.
+* [ ] User can see two different border colors in our ChoiceCard components.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
