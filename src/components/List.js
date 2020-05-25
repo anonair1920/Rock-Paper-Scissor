@@ -20,7 +20,7 @@ import React from 'react';
 function List() {
     return (
         <div>
-            <h5>History record</h5>
+            <h2>History record</h2>
         </div>
     )
 }

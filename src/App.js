@@ -55,7 +55,6 @@ const choices = {
   scissor:
     "https://www.clipartmax.com/png/middle/151-1517270_scissors-cartoon-cartoon-rock-paper-scissors.png",
 };
-
 export const CHOICES = {
   scissors: {
     name: "scissors",
@@ -99,9 +98,25 @@ export const getRandomChoice = () => {
   return CHOICES[choiceName];
 };
 function App() {
+  const [playerChoice, setPlayerChoice] = useState(null);
+  const [computerChoice, setComputerChoice] = useState(null);
+  const [previousWinner, setPreviousWinner] = useState(null);
   const [prompt, setGamePrompt] = useState("1, 2, 3, SHOOT!");
+  const [gameHistory, setGameHistory] = useState([]);
+
   let onPlayerChoose = (playerChoice) => {
     const [result, compChoice] = getRoundOutcome(playerChoice);
+    const newUserChoice = CHOICES[playerChoice];
+    const newComputerChoice = CHOICES[compChoice];
+    setPlayerChoice(newUserChoice);
+    setComputerChoice(newComputerChoice);
+    if (result === "Victory!") {
+      setPreviousWinner("You");
+    } else if (result === "Defeat!") {
+      setPreviousWinner("Computer");
+    } else {
+      setPreviousWinner("Tie");
+    }
     console.log(
       "result: ",
       result,
@@ -110,7 +125,11 @@ function App() {
       "user's choice: ",
       playerChoice
     );
+    setGamePrompt(result);
+    gameHistory.push(result);
+    setGameHistory(gameHistory);
   };
+
   return (
     <div className="App">
       <h1 className="an-text-carousel an-slide-bottom">Rock Paper Scissor</h1>
@@ -118,10 +137,12 @@ function App() {
         <div className="bigbox mt-5 mb-5">
           <ChoiceCard
             className="col-4"
-            title="Computer"
-            color="red"
-            winner={false}
-            imgURL={choices.rock}
+            title="Player"
+            color="white"
+            winner={true}
+            previousWinner={previousWinner}
+            // imgURL={choices.paper}
+            imgURL={playerChoice && playerChoice.url}
           />
           <div className="col-4">
             <h2 className="an-text-carousel mb-4">{prompt}</h2>
@@ -148,16 +169,23 @@ function App() {
           </div>
           <ChoiceCard
             className="col-4"
-            title="Player"
-            color="white"
-            winner={true}
-            imgURL={choices.paper}
+            title="Computer"
+            color="red"
+            winner={false}
+            previousWinner={previousWinner}
+            // imgURL={choices.rock}
+            imgURL={computerChoice && computerChoice.url}
           />
         </div>
       </div>
-      <ul>
+      <div className='historyBox'>
         <List />
-      </ul>
+        <ul>
+          {gameHistory.map((result) => {
+            return <li>{result}</li>;
+          })}
+        </ul>
+      </div>
     </div>
   );
 }

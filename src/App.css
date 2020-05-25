@@ -110,3 +110,10 @@ button:hover {
     transform: translateY(0);
   }
 }
+
+.historyBox{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: lightgoldenrodyellow;
+}
