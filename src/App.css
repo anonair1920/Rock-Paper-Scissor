@@ -46,18 +46,22 @@
 }
 
 .red {
-  background-color: blue;
+  background-color: lightblue;
+  border: 5px solid cadetblue;
+  border-radius: 10px;
 }
 
 .white {
-  background-color: violet;
+  background-color: pink;
+  border: 5px solid violet;
+  border-radius: 10px;
 }
 
 .container {
   display: flex;
 }
 
-.card-size{
+.card-size {
   width: 250px;
   height: 250px;
 }
