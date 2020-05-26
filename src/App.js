@@ -51,6 +51,7 @@ import { CHOICES, getRoundOutcome } from "./utils";
 import ChoiceButtons from "./components/ChoiceButtons";
 import Login from "./components/Login";
 import Footer from './components/Footer';
+
 function App() {
   const [playerChoice, setPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
@@ -83,7 +84,7 @@ function App() {
     );
 
     setGamePrompt(result);
-    gameHistory.push(result);
+    gameHistory.unshift(result);
     setGameHistory(gameHistory);
   };
 

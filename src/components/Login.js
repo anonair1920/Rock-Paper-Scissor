@@ -2,12 +2,16 @@ import React from "react";
 import "../App.css";
 
 function Login() {
+  let userName = '';
   return (
     <div className="container headBox">
       <h1 className="an-text-carousel">Rock Paper Scissor</h1>
       <form class="form-inline">
         <div class="form-group mx-sm-3 mb-2">
           <input
+            onChange={(e) => {
+              userName = e.target.value;
+            }}
             type="text"
             class="form-control"
             id="inputPassword2"
